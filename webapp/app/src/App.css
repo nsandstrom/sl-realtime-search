@@ -1,0 +1,179 @@
+
+
+html, body {
+  margin-top: 0px;
+  padding-top: 0px;
+  height: 100%;
+}
+
+.App {
+  margin-top: 0px;
+  padding-top: 0px;
+  height: 100%;
+
+  /*justify-content: center;*/
+  /*align-items: flex-start;*/
+}
+
+.App-body {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+}
+
+.App-body > * {
+  /*padding: 10px;*/
+  flex: 1 100%;
+}
+
+h1 h2 h3 {
+  margin-top:0;
+  padding-top: 0;
+  margin: 0px;
+}
+
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+
+@media all and (min-width: 800px) {
+  /* We invert order of first sidebar and main
+   * And tell the main element to take twice as much width as the other two sidebars 
+   */
+  /*.App-header { height: 150px; }*/
+  /*.sidebar { flex: 1 auto;}*/
+  .sidebar { flex: 1 auto; min-height: calc(100vh - 150px) }
+  .result { flex: 4 auto; }
+}
+
+#root {
+  margin-top: 0px;
+  padding-top: 0px;
+  height: 100%;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  /*align-self: flex-end;*/
+  margin-top: 0px;
+  background-color: #222;;
+  height: 150px;
+  /*cross: 1 0 100px;*/
+}
+
+.App-title {
+  padding: 20px;
+  font-size: 1.5em;
+  color: blue;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.sidebar {
+  background-color: #258446;
+
+}
+
+.result {
+  background-color: #EEE;
+  /*height: 100px;*/
+}
+
+
+.select-panel {
+  padding: 10px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+
+
+
+.station_list {
+  background-color: gray;
+  /*position:fixed;*/
+  padding-left: 5px;
+  padding-right: 5px;
+  z-index:1000;
+  border: 1px solid black;
+}
+
+.station_list:after {
+  clear: both;
+}
+
+.station_suggestion p {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.station_suggestion:nth-child(even) {
+  background: #CCC
+}
+tr:nth-child(odd) {background: #FFF}
+
+.station_list >*:hover {
+  background-color: green;
+}
+
+/* Departures */
+
+.RealtimeResultSection{
+  background-color: white;
+  padding: 10px;
+  max-width: 600px;
+}
+
+.directionHeader{
+  font-weight: bold;
+}
+
+.departureItem {
+  display: flex;
+  flex-flow: row;
+  align-items: stretch;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.departureItem > * {
+  /*padding: 10px;*/
+  /*flex: 1 100%;*/
+}
+
+.departureItem:nth-child(even) {
+  background: #DDD
+}
+
+.departureLineNumber {
+  /*height: 20px;*/
+  width: 30px;
+  padding-left: 2px;
+  padding-right: 5px;
+  background: #CCF;
+  border-radius: 2px;
+}
+
+.departureDeviation {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 2px;
+  background: #F99;
+}
+
+.right {
+   margin-left: auto;
+}

@@ -1,0 +1,4 @@
+data/
+secrets/
+*/config/*.json
+!*/config/default.json

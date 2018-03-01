@@ -1,0 +1,16 @@
+{
+	"db": {
+		"endpoint": "localhost",
+		"port": 27017,
+		"name": "sl-realtime"
+	},
+
+	"api_endpoint": {
+		"port": 3000
+	},
+
+	"api_keys": {
+		"realtime": "1234",
+		"stations": "1234"
+	}
+}

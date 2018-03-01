@@ -1,0 +1,18 @@
+FROM node:8-slim
+
+ADD app/package.json /tmp/package.json
+RUN cd /tmp && npm install
+RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
+
+ADD app /opt/app
+# ADD /config/production.json /opt/app/src/config/production.json
+WORKDIR /opt/app
+
+RUN npm run build
+# CMD ["npm", "run", "build"]
+# CMD ["ls", "/opt/app"]
+# CMD ["cat", "/opt/app/src/config/production.json"]
+
+USER node
+
+CMD ["npm", "run", "serve"]

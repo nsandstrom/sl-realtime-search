@@ -1,0 +1,18 @@
+FROM node:8-slim
+
+
+# RUN mkdir /app
+
+# use nodemon for development
+# RUN npm install --global nodemon
+# RUN npm install --global babel-cli
+
+# use cached layer for node modules
+ADD app/package.json /tmp/package.json
+RUN cd /tmp && npm install
+RUN mkdir -p /app && cp -a /tmp/node_modules /app/
+
+ADD ./app/package.json /app/package.json
+# ADD ./app/.babelrc /app/.babelrc
+WORKDIR /app
+CMD ["npm", "start"]

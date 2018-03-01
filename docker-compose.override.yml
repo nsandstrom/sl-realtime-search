@@ -1,0 +1,24 @@
+version: '3.1'
+services:
+    backend:
+        container_name: "slrt_api_development"
+        build:
+            context: ./backend
+            dockerfile: Dockerfile.development
+        image: slrt_api_dev
+        ports:
+            - 3001:3000
+        volumes:
+            - ./backend/app/src:/app/src
+            - ./backend/app/test:/app/test
+        environment:
+            NODE_ENV: development
+    webapp:
+        build:
+            context: ./webapp
+            dockerfile: Dockerfile.development
+        ports:
+            - 3000:3000
+        volumes:
+            - ./webapp/app/src:/app/src
+            - ./webapp/app/public:/app/public

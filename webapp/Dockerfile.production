@@ -1,0 +1,28 @@
+# build environment
+FROM node:8-slim as builder
+
+ADD app/package.json /tmp/package.json
+RUN cd /tmp && npm install
+RUN mkdir -p /opt/app && cp -a /tmp/node_modules /opt/app/
+
+ADD app/src /opt/app/src
+ADD app/public /opt/app/public
+ADD app/package.json /opt/app/package.json
+
+WORKDIR /opt/app
+
+RUN npm run build
+# CMD ["npm", "run", "build"]
+# CMD ["ls", "/opt/app"]
+# CMD ["cat", "/opt/app/src/config/production.json"]
+
+# USER node
+
+# CMD ["npm", "run", "serve"]
+# CMD ["ls", "-l"]
+
+# production environment
+FROM nginx:1.13.9-alpine
+COPY --from=builder  /opt/app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
