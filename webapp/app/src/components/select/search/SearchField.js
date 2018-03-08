@@ -18,6 +18,7 @@ export default class SearchField extends React.Component {
 				<input type="text"
 					value={this.props.searchFor}
 					onChange={this.props.handleChange}
+					onClick={this.props.handleClick}
 				/>
 			</div>
 		);

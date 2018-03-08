@@ -12,6 +12,7 @@ export default class Search extends React.Component {
 
 		this.handleChangeSearchFor = this.handleChangeSearchFor.bind(this);
 		this.handleSelectStation = this.handleSelectStation.bind(this);
+		this.handleSearchFieldClick = this.handleSearchFieldClick.bind(this);
 		// this.handleChangeSelectedStation = this.handleChangeSelectedStation.bind(this);
 		this.updateStationList = this.updateStationList.bind(this);
 
@@ -47,6 +48,12 @@ export default class Search extends React.Component {
 		// if()
 	}
 
+	handleSearchFieldClick(){
+		if(this.state.isSelected){
+			this.setState({ isSelected: false })
+		}
+	}
+
 	updateStationList(){
 		findStations(this.state.searchFor).then(matches => {
 			this.setState({matches: matches})
@@ -57,7 +64,11 @@ export default class Search extends React.Component {
 	render() {
 		return (
 			<div>
-				<SearchField searchFor={this.state.searchFor} handleChange={this.handleChangeSearchFor} />
+				<SearchField
+					searchFor={this.state.searchFor}
+					handleChange={this.handleChangeSearchFor}
+					handleClick={this.handleSearchFieldClick}
+				/>
 				<StationListComponents
 					stations={this.state.matches}
 					handleSelect={this.handleSelectStation}
